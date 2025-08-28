@@ -602,11 +602,20 @@ footer {
   #Works .Project {
     flex: 0 0 80%;
     scroll-snap-align: center;
+    position: relative;
   }
 
   #Works .Projects::-webkit-scrollbar {
     display: none;
   }
+  #Works .Project h3 {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  margin: 0;            
+  z-index: 1;           
+}
 
   /* ---- Skills ---- */
   #Skills {
