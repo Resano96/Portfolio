@@ -36,6 +36,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;  /* más finita */
+  scrollbar-color: var(--color-primary) transparent; 
 }
 
 /* ===================== BASE ===================== */
@@ -508,14 +510,6 @@ footer {
   color: var(--color-background);
 }
 
-@media (max-width: 768px) {
-  .cookie-popup {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: left;
-    gap: 10px;
-  }
-}
 /* ===================== MEDIA QUERY: MOBILE ===================== */
 @media (max-width: 768px) {
   /* ---- Tokens responsivos ---- */
@@ -659,5 +653,12 @@ footer {
   }
   #Contacts-text p {
     margin: 0 auto;
+  }
+  /* ---- Cookies ---- */
+  .cookie-popup {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 10px;
   }
 }
