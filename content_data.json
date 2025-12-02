@@ -218,31 +218,43 @@
       "projects": [
         {
           "id": "proj-sql",
-          "title": "Interactive SQL Learning Tool",
+          "title": "Herramienta Interactiva de Aprendizaje SQL",
           "description": "Herramienta web interactiva para aprender y demostrar comandos SQL (CRUD). Visualiza consultas en tiempo real antes de ejecutarlas en la base de datos.",
           "tags": ["Flask", "SQLite", "SQL", "HTML/CSS"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "",
+            "code": "https://github.com/Resano96/PaginaSQLite"
+          }
         },
         {
           "id": "proj-django",
-          "title": "Django Web Application",
+          "title": "Aplicación Web con Django",
           "description": "Aplicación web completa con sistema de autenticación robusto, gestión de modelos con ORM y arquitectura MVT limpia.",
           "tags": ["Django", "PostgreSQL", "Bootstrap", "Auth"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Prueba-con-Django"
+          }
         },
         {
           "id": "proj-exam",
-          "title": "Exam Ranking System",
+          "title": "Pagina de examen con ranking",
           "description": "Sistema de evaluación automatizado que procesa respuestas, calcula puntuaciones y genera rankings dinámicos utilizando POO avanzada.",
           "tags": ["Python", "OOP", "Algoritmos", "File I/O"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Examen-con-ranking"
+          }
         },
         {
           "id": "proj-pet",
-          "title": "Pet Store Management",
+          "title": "Gestión de Tienda de Mascotas",
           "description": "Aplicación de gestión empresarial en Java con operaciones CRUD completas, documentación Javadoc y arquitectura escalable.",
           "tags": ["Java", "CRUD", "Javadoc", "Console UI"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Tienda-mascotas"
+          }
         }
       ]
     },
@@ -363,28 +375,40 @@
           "title": "Interactive SQL Learning Tool",
           "description": "Interactive web tool to learn and demonstrate SQL commands (CRUD). Visualizes queries in real-time before executing them on the database.",
           "tags": ["Flask", "SQLite", "SQL", "HTML/CSS"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/PaginaSQLite"
+          }
         },
         {
           "id": "proj-django",
           "title": "Django Web Application",
           "description": "Aplicación web completa con sistema de autenticación robusto, gestión de modelos con ORM y arquitectura MVT limpia.",
           "tags": ["Django", "PostgreSQL", "Bootstrap", "Auth"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Prueba-con-Django"
+          }
         },
         {
           "id": "proj-exam",
           "title": "Exam Ranking System",
           "description": "Sistema de evaluación automatizado que procesa respuestas, calcula puntuaciones y genera rankings dinámicos utilizando POO avanzada.",
           "tags": ["Python", "OOP", "Algoritmos", "File I/O"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Examen-con-ranking"
+          }
         },
         {
           "id": "proj-pet",
           "title": "Pet Store Management",
           "description": "Aplicación de gestión empresarial en Java con operaciones CRUD completas, documentación Javadoc y arquitectura escalable.",
           "tags": ["Java", "CRUD", "Javadoc", "Console UI"],
-          "links": { "demo": "#", "code": "#" }
+          "links": {
+            "demo": "#",
+            "code": "https://github.com/Resano96/Tienda-mascotas"
+          }
         }
       ]
     }
