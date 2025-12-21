@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   font-size: 16px;
 }
 
@@ -91,7 +92,6 @@ img {
 }
 
 #navbar.scrolled {
-  padding: 1rem 0;
   background: rgba(10, 10, 10, 0.95);
 }
 
@@ -187,13 +187,31 @@ img {
 }
 
 .mobile-menu-toggle {
-  display: none;
+  display: none; /* Hidden by default */
   flex-direction: column;
   gap: 6px;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 1001;
+}
+
+/* Only show hamburger if we decided to keep it for tablet/desktop, but usually it's for mobile. 
+   If we are REPLACING it with bottom nav on mobile (<768px), then we should ensure it's hidden there.
+   Actually, the existing code had `display: none` and likely showed it via media query.
+   Let's check where it was shown. It was likely shown in a media query I didn't see in the first 800 lines.
+   I'll assume I need to explicitly hide it on mobile now.
+*/
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: none !important; /* Force hide on mobile in favor of bottom nav */
+  }
+
+  /* Also hide the top nav links container if it was showing */
+  .nav-menu {
+    display: none !important;
+  }
 }
 
 .mobile-menu-toggle span {
@@ -378,7 +396,7 @@ img {
    4. SECTIONS & ABOUT
    =========================== */
 section {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
   position: relative;
 }
 
@@ -468,7 +486,6 @@ section {
    =========================== */
 .education {
   background: var(--dark-surface);
-  padding: 6rem 0;
 }
 
 .timeline {
@@ -563,7 +580,6 @@ section {
    =========================== */
 .skills {
   background: var(--dark-bg);
-  padding: 6rem 0;
 }
 
 .skills-grid {
@@ -710,7 +726,6 @@ section {
    =========================== */
 .projects {
   background: var(--black);
-  padding: 6rem 0;
 }
 
 .projects-grid {
@@ -850,7 +865,6 @@ section {
    =========================== */
 .contact {
   background: var(--dark-surface);
-  padding: 6rem 0;
 }
 
 .contact-content {
@@ -1101,6 +1115,34 @@ section {
     opacity: 0.7;
     animation: pulse 2s infinite;
   }
+
+  /* Contact Links Grid for Mobile */
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 1rem;
+  }
+
+  .contact-link {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .contact-link:first-child {
+    grid-column: span 2; /* Email full width */
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+    word-break: break-all; /* Prevent overflow */
+  }
 }
 
 @media (max-width: 480px) {
@@ -1157,5 +1199,124 @@ section {
     cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6.4 15.5 2.3-6.9 6.9-2.3L1 1z' fill='%23ffffff' stroke='%2310b981' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E")
         1 1,
       pointer;
+  }
+}
+
+/* ===========================
+   8. MOBILE BOTTOM NAVIGATION
+   =========================== */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background: #222;
+  border-radius: 2rem;
+  display: none; /* Hidden by default as requested */
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1rem;
+  height: 70px;
+  z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-bottom-nav.visible {
+  display: flex;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mobile-nav-item svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.mobile-nav-item span {
+  position: absolute;
+  bottom: -20px;
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Active State - Elevated Bubble */
+.mobile-nav-item.active {
+  transform: translateY(-25px);
+}
+
+.mobile-nav-item.active svg {
+  stroke: var(--black);
+  width: 28px;
+  height: 28px;
+}
+
+.mobile-nav-item.active::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: var(--primary-green);
+  border-radius: 50%;
+  border: 6px solid var(--black); /* Matches body bg to create "cutout" effect */
+  z-index: 1;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-item.active span {
+  opacity: 1;
+  bottom: -35px; /* Position text below the bubble */
+  color: var(--text-primary);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Hide on desktop */
+@media (min-width: 769px) {
+  .mobile-bottom-nav,
+  .mobile-bottom-nav.visible {
+    display: none !important;
+  }
+}
+
+/* Adjust main content padding on mobile */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 100px;
   }
 }

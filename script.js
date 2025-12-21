@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initAnimations();
     initMobileInteractions();
+    initMobileNavigation();
     initApp();
     updateFooterYear();
 });
@@ -113,6 +114,83 @@ function initMobileInteractions() {
                     if (otherCard !== this) {
                         otherCard.classList.remove('flipped');
                     }
+                });
+            }
+        });
+    });
+}
+
+// ===========================
+// 3.1. MOBILE BOTTOM NAVIGATION
+// ===========================
+function initMobileNavigation() {
+    const mobileNav = document.getElementById('mobile-bottom-nav');
+    const heroSection = document.getElementById('home');
+    const navItems = document.querySelectorAll('.mobile-nav-item');
+    const sections = document.querySelectorAll('section');
+
+    if (!mobileNav || !heroSection) return;
+
+    // 1. Visibility Logic (Intersection Observer)
+    // Show nav when hero section is mostly out of view
+    const observerOptions = {
+        root: null,
+        threshold: 0.1 // Trigger when 10% of hero is still visible (exiting)
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // If hero is NOT intersecting (meaning we scrolled past it), show nav
+            if (!entry.isIntersecting) {
+                mobileNav.classList.add('visible');
+            } else {
+                mobileNav.classList.remove('visible');
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(heroSection);
+
+    // 2. Active Link Highlighting (Scroll Spy)
+    window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Offset for fixed header/nav
+            if (pageYOffset >= (sectionTop - 300)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href').includes(current)) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // 3. Smooth Scroll for Bottom Nav Links
+    navItems.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Update active state immediately
+                navItems.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+
+                const headerOffset = 80; // Account for fixed top navbar
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
