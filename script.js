@@ -1,42 +1,30 @@
-/**
- * Ander Resano - Portfolio Script
- * Handles navigation, animations, mobile interactions, and translations.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
-    initAnimations();
     initMobileInteractions();
     initMobileNavigation();
     initApp();
     updateFooterYear();
 });
 
-// ===========================
-// 1. NAVIGATION & SCROLL
-// ===========================
+let contentData = {};
+let currentLang = 'es';
+let currentMode = 'programmer';
+
 function initNavigation() {
     const navbar = document.getElementById('navbar');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Sticky Navbar
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile Menu Toggle
     mobileMenuToggle.addEventListener('click', () => {
         mobileMenuToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuToggle.classList.remove('active');
@@ -44,20 +32,13 @@ function initNavigation() {
         });
     });
 
-    // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: target.getBoundingClientRect().top + window.pageYOffset - 80,
                     behavior: 'smooth'
                 });
             }
@@ -65,64 +46,37 @@ function initNavigation() {
     });
 }
 
-// ===========================
-// 2. ANIMATIONS
-// ===========================
 function initAnimations() {
-    // Fade In on Scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Elements to animate
-    const animatedElements = document.querySelectorAll('.section-title, .about-content, .timeline-item, .flip-card, .project-card, .contact-content');
-
-    animatedElements.forEach(el => {
+    document.querySelectorAll('.section-title, .about-content, .timeline-item, .flip-card, .project-card, .contact-content').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
     });
 }
 
-// ===========================
-// 3. MOBILE INTERACTIONS
-// ===========================
 function initMobileInteractions() {
-    const skillCards = document.querySelectorAll('.flip-card');
-
-    skillCards.forEach(card => {
+    const cards = document.querySelectorAll('.flip-card');
+    cards.forEach(card => {
         card.addEventListener('click', function () {
-            // Check if we are in mobile view (<= 968px) OR if the device doesn't support hover
-            // This ensures it works on real phones AND when resizing desktop browser
             const isMobile = window.innerWidth <= 968 || !window.matchMedia('(hover: hover)').matches;
-
             if (isMobile) {
-                // Toggle flipped class
                 this.classList.toggle('flipped');
-
-                // Close other cards to keep UI clean
-                skillCards.forEach(otherCard => {
-                    if (otherCard !== this) {
-                        otherCard.classList.remove('flipped');
-                    }
+                cards.forEach(other => {
+                    if (other !== this) other.classList.remove('flipped');
                 });
             }
         });
     });
 }
 
-// ===========================
-// 3.1. MOBILE BOTTOM NAVIGATION
-// ===========================
 function initMobileNavigation() {
     const mobileNav = document.getElementById('mobile-bottom-nav');
     const heroSection = document.getElementById('home');
@@ -131,65 +85,33 @@ function initMobileNavigation() {
 
     if (!mobileNav || !heroSection) return;
 
-    // 1. Visibility Logic (Intersection Observer)
-    // Show nav when hero section is mostly out of view
-    const observerOptions = {
-        root: null,
-        threshold: 0.1 // Trigger when 10% of hero is still visible (exiting)
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // If hero is NOT intersecting (meaning we scrolled past it), show nav
-            if (!entry.isIntersecting) {
-                mobileNav.classList.add('visible');
-            } else {
-                mobileNav.classList.remove('visible');
-            }
+            mobileNav.classList.toggle('visible', !entry.isIntersecting);
         });
-    }, observerOptions);
+    }, { root: null, threshold: 0.1 }).observe(heroSection);
 
-    observer.observe(heroSection);
-
-    // 2. Active Link Highlighting (Scroll Spy)
     window.addEventListener('scroll', () => {
         let current = '';
-
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // Offset for fixed header/nav
-            if (pageYOffset >= (sectionTop - 300)) {
+            if (pageYOffset >= section.offsetTop - 300) {
                 current = section.getAttribute('id');
             }
         });
-
         navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href').includes(current)) {
-                item.classList.add('active');
-            }
+            item.classList.toggle('active', item.getAttribute('href').includes(current));
         });
     });
 
-    // 3. Smooth Scroll for Bottom Nav Links
     navItems.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                // Update active state immediately
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 navItems.forEach(item => item.classList.remove('active'));
                 this.classList.add('active');
-
-                const headerOffset = 80; // Account for fixed top navbar
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: target.getBoundingClientRect().top + window.pageYOffset - 80,
                     behavior: 'smooth'
                 });
             }
@@ -197,19 +119,10 @@ function initMobileNavigation() {
     });
 }
 
-// ===========================
-// 4. DATA & LANGUAGE & MODE
-// ===========================
-let contentData = {};
-let currentLang = 'es';
-let currentMode = 'programmer';
-
 async function initApp() {
     try {
         const response = await fetch('content_data.json');
         contentData = await response.json();
-
-        // Initialize Language and Mode after data is loaded
         initLanguage();
         initMode();
     } catch (error) {
@@ -222,7 +135,6 @@ function initLanguage() {
     const langText = langToggle.querySelector('.lang-text');
     currentLang = localStorage.getItem('portfolioLang') || 'es';
 
-    // Set initial state
     updateLanguage(currentLang);
     langText.textContent = currentLang === 'es' ? 'EN' : 'ES';
 
@@ -231,98 +143,76 @@ function initLanguage() {
         localStorage.setItem('portfolioLang', currentLang);
         langText.textContent = currentLang === 'es' ? 'EN' : 'ES';
         updateLanguage(currentLang);
-        updateContent(currentMode); // Update content when language changes
+        updateContent(currentMode);
     });
 }
 
 function updateLanguage(lang) {
-    if (contentData.general && contentData.general[lang]) {
-        const translations = contentData.general[lang];
-        const elements = document.querySelectorAll('[data-i18n]');
+    const translations = contentData.general && contentData.general[lang];
+    if (!translations) return;
 
-        elements.forEach(element => {
-            const key = element.getAttribute('data-i18n');
-            if (translations[key]) {
-                if (element.tagName === 'P' || element.tagName === 'SPAN' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3') {
-                    element.innerHTML = translations[key];
-                } else {
-                    element.textContent = translations[key];
-                }
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[key]) {
+            if (['P', 'SPAN', 'H1', 'H2', 'H3'].includes(el.tagName)) {
+                el.innerHTML = translations[key];
+            } else {
+                el.textContent = translations[key];
             }
-        });
-    }
+        }
+    });
 }
 
 function initMode() {
     const modeToggle = document.getElementById('mode-toggle');
+    const modeLabel = modeToggle.querySelector('.mode-label');
     currentMode = localStorage.getItem('portfolioMode') || 'programmer';
 
-    // Set initial state
+    applyMode(currentMode, modeToggle, modeLabel);
     updateContent(currentMode);
-    modeToggle.classList.toggle('active', currentMode === 'construction');
 
     modeToggle.addEventListener('click', () => {
         currentMode = currentMode === 'programmer' ? 'construction' : 'programmer';
         localStorage.setItem('portfolioMode', currentMode);
+        applyMode(currentMode, modeToggle, modeLabel);
         updateContent(currentMode);
-
-        modeToggle.classList.toggle('active', currentMode === 'construction');
     });
 }
 
+function applyMode(mode, toggle, label) {
+    const html = document.documentElement;
+    html.setAttribute('data-mode', mode);
+    toggle.classList.toggle('active', mode === 'construction');
+    label.textContent = mode === 'programmer' ? 'BIM' : 'DEV';
+}
+
 function updateContent(mode) {
-    if (!contentData[mode] || !contentData[mode][currentLang]) return;
+    const data = contentData[mode] && contentData[mode][currentLang];
+    if (!data) return;
 
-    const data = contentData[mode][currentLang];
+    if (data.header) renderHeader(data.header);
+    if (data.education) renderEducation(data.education);
+    if (data.skills) renderSkills(data.skills);
+    if (data.projects) renderProjects(data.projects);
 
-    // Render Header
-    if (data.header) {
-        renderHeader(data.header);
-    }
-
-    // Render Education
-    if (data.education) {
-        renderEducation(data.education);
-    }
-
-    // Render Skills
-    if (data.skills) {
-        renderSkills(data.skills);
-    }
-
-    // Render Projects
-    if (data.projects) {
-        renderProjects(data.projects);
-    }
-
-    // Re-initialize animations for new elements
     initAnimations();
-    // Re-initialize mobile interactions for new elements
     initMobileInteractions();
 }
 
-function renderHeader(headerData) {
-    const roleEl = document.getElementById('hero-role');
-    const techStackEl = document.getElementById('hero-tech-stack');
-    const descEl = document.getElementById('hero-description');
-
-    if (roleEl) roleEl.textContent = headerData.role;
-    if (techStackEl) techStackEl.textContent = headerData.techStack;
-    if (descEl) descEl.textContent = headerData.description;
+function renderHeader(h) {
+    const role = document.getElementById('hero-role');
+    const stack = document.getElementById('hero-tech-stack');
+    const desc = document.getElementById('hero-description');
+    if (role) role.textContent = h.role;
+    if (stack) stack.textContent = h.techStack;
+    if (desc) desc.textContent = h.description;
 }
 
 function renderEducation(items) {
     const container = document.querySelector('.timeline');
     if (!container) return;
-
-    container.innerHTML = ''; // Clear existing content
-
-    items.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'timeline-item';
-        div.id = item.id;
-
-        div.innerHTML = `
+    container.innerHTML = items.map(item => `
+        <div class="timeline-item" id="${item.id}">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
                 <span class="timeline-date">${item.date}</span>
@@ -330,30 +220,19 @@ function renderEducation(items) {
                 <p class="timeline-subtitle">${item.subtitle}</p>
                 <p class="timeline-desc">${item.description}</p>
             </div>
-        `;
-        container.appendChild(div);
-    });
+        </div>
+    `).join('');
 }
 
 function renderSkills(items) {
     const container = document.querySelector('.skills-grid');
     if (!container) return;
-
-    container.innerHTML = ''; // Clear existing content
-
-    items.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'flip-card';
-        div.tabIndex = 0;
-
-        // Generate frameworks HTML
-        const frameworksHtml = item.frameworks.map(fw => `<span>${fw}</span>`).join('');
-
-        div.innerHTML = `
+    container.innerHTML = items.map(item => `
+        <div class="flip-card" tabindex="0">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="skill-logo">
-                        <svg viewBox="${item.viewBox || '0 0 24 24'}" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#10b981" stroke-width="1.5" aria-hidden="true">
+                        <svg viewBox="${item.viewBox || '0 0 24 24'}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             ${item.icon}
                         </svg>
                     </div>
@@ -363,68 +242,65 @@ function renderSkills(items) {
                     <h3>${item.backTitle || item.title}</h3>
                     <p class="experience">${item.experience}</p>
                     <div class="frameworks">
-                        ${frameworksHtml}
+                        ${item.frameworks.map(fw => `<span>${fw}</span>`).join('')}
                     </div>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: ${item.progress}%"></div>
                     </div>
                 </div>
             </div>
-        `;
-        container.appendChild(div);
-    });
+        </div>
+    `).join('');
 }
 
 function renderProjects(items) {
     const container = document.querySelector('.projects-grid');
     if (!container) return;
 
-    container.innerHTML = ''; // Clear existing content
+    const labelKey = currentLang === 'es' ? 'projectFeatured' : 'projectFeatured';
+    const inDevKey = currentLang === 'es' ? 'projectInDev' : 'projectInDev';
+    const translations = contentData.general && contentData.general[currentLang];
+    const featuredLabel = translations ? translations[labelKey] : 'Featured';
+    const inDevLabel = translations ? translations[inDevKey] : 'In Development';
 
-    items.forEach(item => {
-        const article = document.createElement('article');
-        article.className = 'project-card';
-        article.id = item.id;
+    container.innerHTML = items.map(item => {
+        const isInDev = item.status === 'in-dev';
+        const label = isInDev ? inDevLabel : featuredLabel;
+        const labelClass = isInDev ? 'project-label in-dev' : 'project-label';
+        const tags = item.tags ? item.tags.map(t => `<span class="tech-badge">${t}</span>`).join('') : '';
 
-        // Generate tags HTML
-        const tagsHtml = item.tags ? item.tags.map(tag => `<span class="tech-badge">${tag}</span>`).join('') : '';
-
-        // Generate links HTML
-        let linksHtml = '';
+        let links = '';
         if (item.links) {
-            linksHtml = `
-                <div class="project-links">
-                    <a href="${item.links.code}" class="project-link" aria-label="Ver Código">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                        <span>Code</span>
-                    </a>
-                </div>
-            `;
+            const codeLink = item.links.code && item.links.code !== '#'
+                ? `<a href="${item.links.code}" target="_blank" class="project-link" aria-label="Code">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span>Code</span>
+                  </a>`
+                : '';
+            if (codeLink) {
+                links = `<div class="project-links">${codeLink}</div>`;
+            }
         }
 
-        article.innerHTML = `
-            <div class="project-image">
-                <div class="project-overlay"></div>
-                <div class="project-tech-stack">
-                    ${tagsHtml}
+        return `
+            <article class="project-card" id="${item.id}">
+                <div class="project-image">
+                    <div class="project-overlay"></div>
+                    <div class="project-tech-stack">${tags}</div>
                 </div>
-            </div>
-            <div class="project-content">
-                <h3 class="project-title">${item.title}</h3>
-                <p class="project-description">${item.description}</p>
-                ${linksHtml}
-            </div>
+                <div class="project-content">
+                    <span class="${labelClass}">${label}</span>
+                    <h3 class="project-title">${item.title}</h3>
+                    <p class="project-description">${item.description}</p>
+                    ${links}
+                </div>
+            </article>
         `;
-        container.appendChild(article);
-    });
+    }).join('');
 }
 
-
-// ===========================
-// 6. UTILS
-// ===========================
 function updateFooterYear() {
     document.getElementById('year').textContent = new Date().getFullYear();
 }

@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-mode="programmer">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ander Resano | Desarrollador Backend Python</title>
+    <title>Ander Resano | Developer & AI</title>
 
-    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Portafolio de Ander Resano. Desarrollador Backend Python especializado en Inteligencia Artificial, Data Science y arquitecturas escalables."
+      content="Portfolio de Ander Resano. Developer especializado en C#, Python e Inteligencia Artificial. También BIM Developer con Revit API."
     />
     <meta
       name="keywords"
-      content="Ander Resano, Python Developer, Backend, AI Engineer, Data Science, Django, Flask, Machine Learning, España"
+      content="Ander Resano, C# Developer, Python, AI, BIM Developer, Revit API, Unity, España"
     />
     <meta name="author" content="Ander Resano" />
     <meta name="theme-color" content="#0f172a" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Fonts & Styles -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,71 +26,23 @@
     />
   </head>
   <body>
-    <!-- Navigation -->
     <nav id="navbar" aria-label="Navegación principal">
       <div class="nav-container">
         <div class="logo" aria-label="Ander Resano Logo">AR</div>
         <ul class="nav-menu">
-          <li>
-            <a href="#home" class="nav-link active" data-i18n="navHome"
-              >Inicio</a
-            >
-          </li>
-          <li>
-            <a href="#about" class="nav-link" data-i18n="navAbout">Sobre mí</a>
-          </li>
-          <li>
-            <a href="#education" class="nav-link" data-i18n="navEducation"
-              >Formación</a
-            >
-          </li>
-          <li>
-            <a href="#skills" class="nav-link" data-i18n="navSkills">Skills</a>
-          </li>
-          <li>
-            <a href="#projects" class="nav-link" data-i18n="navProjects"
-              >Proyectos</a
-            >
-          </li>
-          <li>
-            <a href="#contact" class="nav-link" data-i18n="navContact"
-              >Contacto</a
-            >
-          </li>
+          <li><a href="#home" class="nav-link active" data-i18n="navHome">Inicio</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="navAbout">Sobre mí</a></li>
+          <li><a href="#education" class="nav-link" data-i18n="navEducation">Formación</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="navSkills">Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="navProjects">Proyectos</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="navContact">Contacto</a></li>
         </ul>
         <div class="nav-controls">
-          <button
-            id="mode-toggle"
-            class="mode-toggle"
-            aria-label="Cambiar modo"
-            title="Cambiar modo"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M4 14h6v4H4zm-2 5h12v2H2zm8-4h4l3-4 3 2v3h-3v-3l-2-1-3 3z"
-              ></path>
-            </svg>
+          <button id="mode-toggle" class="mode-toggle" aria-label="Cambiar modo" title="Cambiar perfil">
+            <span class="mode-label">BIM</span>
           </button>
-          <button
-            id="language-toggle"
-            class="language-toggle"
-            aria-label="Cambiar idioma"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
+          <button id="language-toggle" class="language-toggle" aria-label="Cambiar idioma">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path
                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
                 fill="currentColor"
@@ -110,7 +60,6 @@
     </nav>
 
     <main>
-      <!-- Hero Section -->
       <section id="home" class="hero" aria-label="Inicio">
         <div class="hero-background" aria-hidden="true">
           <div class="grid-overlay"></div>
@@ -124,49 +73,27 @@
               <span class="name">Ander Resano</span>
             </h1>
             <p class="hero-subtitle">
-              <span id="hero-role">Desarrollador Backend Python</span><br />
-              <span id="hero-tech-stack" class="tech-stack"
-                >IA & Data Science</span
-              >
+              <span id="hero-role">Developer & AI</span><br />
+              <span id="hero-tech-stack" class="tech-stack">C# · Python · Inteligencia Artificial</span>
             </p>
             <p id="hero-description" class="hero-description">
-              Transformando soluciones estructurales en código robusto y
-              escalable
+              Construyendo software con código y con inteligencia artificial
             </p>
             <div class="hero-cta">
-              <a
-                href="CV_Ander_Resano_TIC_CONS.pdf"
-                class="btn btn-primary"
-                download
-                data-i18n="btnCV"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
+              <a href="CV_Ander_Resano.pdf" class="btn btn-primary" download data-i18n="btnCV">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
                 Descargar CV
               </a>
-              <a
-                href="#projects"
-                class="btn btn-secondary"
-                data-i18n="btnProjects"
-                >Ver Proyectos</a
-              >
+              <a href="#projects" class="btn btn-secondary" data-i18n="btnProjects">Ver Proyectos</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About Section -->
       <section id="about" class="about" aria-label="Sobre mí">
         <div class="container">
           <h2 class="section-title">
@@ -175,31 +102,16 @@
           </h2>
           <div class="about-content">
             <div class="about-text">
-              <h3 class="about-subtitle" data-i18n="aboutSubtitle">
-                De la Construcción al Código
-              </h3>
+              <h3 class="about-subtitle" data-i18n="aboutSubtitle">Resolviendo problemas con código</h3>
               <div class="about-description">
                 <p data-i18n="aboutP1">
-                  Vengo del sector de la <strong>construcción</strong>, donde
-                  aprendí que la <span class="highlight">fiabilidad</span>, la
-                  <span class="highlight">planificación</span> y la
-                  <span class="highlight">resolución de problemas</span> son la
-                  base de cualquier proyecto exitoso.
+                  Tras años en el sector de la <strong>construcción</strong>, donde desarrollé una mentalidad analítica y orientada a la resolución de problemas, di el salto al <span class="highlight">desarrollo de software</span>.
                 </p>
                 <p data-i18n="aboutP2">
-                  Hoy aplico esa misma disciplina al
-                  <strong>desarrollo de software</strong>, centrándome en
-                  escribir código Python robusto y mantenible. Mi experiencia
-                  asegurando la integridad estructural me ha dado una
-                  perspectiva única para identificar cuellos de botella y
-                  construir soluciones duraderas.
+                  Hoy me especializo en <strong>desarrollo con C#, Python y tecnologías de IA</strong>. Combino formación técnica sólida con casi 2 años de experiencia programando, construyendo desde APIs hasta plugins para software industrial.
                 </p>
                 <p data-i18n="aboutP3">
-                  Soy un profesional <strong>autodidacta y curioso</strong>,
-                  motivado por analizar problemas complejos y encontrar
-                  soluciones eficientes. Busco unirme a un equipo donde pueda
-                  aportar mi ética de trabajo y mi pasión por el desarrollo
-                  backend.
+                  Busco activamente mi <strong>primera oportunidad profesional</strong> como desarrollador. Soy autodidacta, resolutivo y estoy acostumbrado a aprender rápido lo que haga falta para sacar el trabajo adelante.
                 </p>
               </div>
             </div>
@@ -213,11 +125,7 @@
                       transform="translate(100 100)"
                     />
                   </svg>
-                  <img
-                    class="ProfilePic"
-                    src="images/profile_pic.jpg"
-                    alt="Ander Resano - Profile Picture"
-                  />
+                  <img class="ProfilePic" src="images/profile_pic.jpg" alt="Ander Resano" />
                 </div>
                 <div class="image-border"></div>
               </div>
@@ -226,85 +134,16 @@
         </div>
       </section>
 
-      <!-- Education Section -->
-      <section
-        id="education"
-        class="education"
-        aria-label="Formación Académica"
-      >
+      <section id="education" class="education" aria-label="Formación">
         <div class="container">
           <h2 class="section-title">
             <span class="title-number" aria-hidden="true">02.</span>
-            <span data-i18n="educationTitle">Formación Académica</span>
+            <span data-i18n="educationTitle">Formación</span>
           </h2>
-          <div class="timeline">
-            <!-- Master IA -->
-            <div class="timeline-item" id="edu-master-ia">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-date" data-i18n="currentDate"
-                  >Actualidad</span
-                >
-                <h3 class="timeline-title" data-i18n="eduMasterIATitle">
-                  Máster en Desarrollo con Inteligencia Artificial
-                </h3>
-                <p class="timeline-subtitle" data-i18n="eduMasterIASub">
-                  Especialización en LLMs y Agentes
-                </p>
-                <p class="timeline-desc" data-i18n="eduMasterIADesc">
-                  Formación avanzada en integración de modelos de IA (GPT-4,
-                  Claude, Llama), RAG (Retrieval-Augmented Generation),
-                  Fine-tuning y desarrollo de agentes autónomos.
-                </p>
-              </div>
-            </div>
-
-            <!-- Master Data -->
-            <div class="timeline-item" id="edu-master-data">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-date" data-i18n="currentDate"
-                  >Actualidad</span
-                >
-                <h3 class="timeline-title" data-i18n="eduMasterDataTitle">
-                  Máster en Análisis de Datos
-                </h3>
-                <p class="timeline-subtitle" data-i18n="eduMasterDataSub">
-                  Big Data & Business Intelligence
-                </p>
-                <p class="timeline-desc" data-i18n="eduMasterDataDesc">
-                  Análisis exploratorio, visualización de datos y modelado
-                  predictivo. Uso de Pandas, NumPy y herramientas de BI para la
-                  toma de decisiones basada en datos.
-                </p>
-              </div>
-            </div>
-
-            <!-- DAM -->
-            <div class="timeline-item" id="edu-dam">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <span class="timeline-date" data-i18n="damDate"
-                  >Cursando 2º Año</span
-                >
-                <h3 class="timeline-title" data-i18n="eduDamTitle">
-                  Grado Superior DAM
-                </h3>
-                <p class="timeline-subtitle" data-i18n="eduDamSub">
-                  Desarrollo de Aplicaciones Multiplataforma
-                </p>
-                <p class="timeline-desc" data-i18n="eduDamDesc">
-                  Formación técnica sólida en arquitectura de software, bases de
-                  datos, programación orientada a objetos y desarrollo
-                  full-stack.
-                </p>
-              </div>
-            </div>
-          </div>
+          <div class="timeline"></div>
         </div>
       </section>
 
-      <!-- Skills Section -->
       <section id="skills" class="skills" aria-label="Habilidades Técnicas">
         <div class="container">
           <h2 class="section-title">
@@ -312,523 +151,25 @@
             <span data-i18n="skillsTitle">Habilidades Técnicas</span>
           </h2>
           <p class="section-description" data-i18n="skillsDescription">
-            Pasa el cursor sobre cada tarjeta para ver frameworks y años de
-            experiencia.
+            Pasa el cursor sobre cada tarjeta para ver frameworks y nivel.
           </p>
-
-          <div class="skills-grid">
-            <!-- AI & LLMs Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      stroke="#10b981"
-                      stroke-width="1.5"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z"
-                      />
-                      <path d="M12 6v6l4 2" />
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="3"
-                        fill="#10b981"
-                        fill-opacity="0.2"
-                      />
-                      <path
-                        d="M9 9 7 7m10 10-2-2m-8 0 2-2m8-8-2 2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </div>
-                  <h3>AI Engineering</h3>
-                </div>
-                <div class="flip-card-back" id="skill-ai">
-                  <h3>AI & LLMs</h3>
-                  <p class="experience" data-i18n="expAdvanced">
-                    Proyectos Avanzados
-                  </p>
-                  <div class="frameworks">
-                    <span>OpenAI API</span>
-                    <span>Claude 3.5</span>
-                    <span>LangChain</span>
-                    <span>Llama 3</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 30%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Data Science Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      stroke="#10b981"
-                      stroke-width="1.5"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 3v18h18" />
-                      <path d="m18.7 6-3.7 5.2-4.6-6.5L3 18" />
-                      <circle cx="18.7" cy="6" r="1.5" fill="#10b981" />
-                      <circle cx="15" cy="11.2" r="1.5" fill="#10b981" />
-                      <circle cx="10.4" cy="4.7" r="1.5" fill="#10b981" />
-                    </svg>
-                  </div>
-                  <h3>Data Science</h3>
-                </div>
-                <div class="flip-card-back" id="skill-data">
-                  <h3>Data Analysis</h3>
-                  <p class="experience" data-i18n="expMaster">
-                    Máster en Curso
-                  </p>
-                  <div class="frameworks">
-                    <span>Pandas</span>
-                    <span>NumPy</span>
-                    <span>Scikit-learn</span>
-                    <span>Jupyter</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 20%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Python Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 255"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z"
-                        fill="#10b981"
-                      ></path>
-                      <path
-                        d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.519 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z"
-                        fill="#10b981"
-                      ></path>
-                    </svg>
-                  </div>
-                  <h3>Python</h3>
-                </div>
-                <div class="flip-card-back" id="skill-python">
-                  <h3>Python</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>Django</span>
-                    <span>Flask</span>
-                    <span>FastAPI</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 60%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- JavaScript Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 256"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996M152.381 211.354l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247L210.29 147.43c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574"
-                        fill="#10b981"
-                      />
-                    </svg>
-                  </div>
-                  <h3>JavaScript</h3>
-                </div>
-                <div class="flip-card-back" id="skill-js">
-                  <h3>JavaScript</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>Node.js</span>
-                    <span>React</span>
-                    <span>Express</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 40%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Java Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 346"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M83 267s-14 8 10 11c29 3 44 2 75-3 0 0 8 5 19 9-67 29-153-2-104-17M74 230s-15 11 8 13c30 3 54 3 95-4 0 0 6 6 15 9-82 24-173 2-118-18"
-                        fill="#10b981"
-                      />
-                      <path
-                        d="M144 166c17 19-4 36-4 36s42-22 23-49c-18-26-31-39 42-83 0 0-115 29-61 96"
-                        fill="#10b981"
-                      />
-                      <path
-                        d="M233 295s10 8-11 14c-39 11-164 14-199 0-12-5 11-12 18-14 8-2 12-2 12-2-14-10-89 19-38 27 139 22 254-10 218-25M89 190s-63 15-22 20c17 2 51 2 83-1 26-2 52-6 52-6s-9 4-16 9c-64 17-187 9-152-8 30-14 55-14 55-14M202 253c65-34 35-66 14-62-5 1-7 3-7 3s2-3 6-4c41-15 73 43-14 66 0 0 1-1 1-3"
-                        fill="#10b981"
-                      />
-                      <path
-                        d="M162 0s36 36-34 91c-56 44-13 69 0 98-33-29-57-55-41-79 23-35 87-52 75-110"
-                        fill="#10b981"
-                      />
-                    </svg>
-                  </div>
-                  <h3>Java</h3>
-                </div>
-                <div class="flip-card-back" id="skill-java">
-                  <h3>Java</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>JavaFX</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 50%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Database Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 256"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M234 86.6L148.3 8.1c-5.7-5.2-13-8.1-20.3-8.1s-14.5 2.9-20.3 8.1L22 86.6c-11.5 10.5-11.5 27.6 0 38.1l85.7 78.6c11.4 10.5 29.1 10.5 40.5 0l85.7-78.6c11.6-10.6 11.6-27.7.1-38.1zM89.7 146.7l18.2-68.9 18.3 68.9H89.7zm-13.4 5.1h66.3l10.5 39.6-43.6-8.9-43.7 8.9 10.5-39.6zm90.6-5.1h-36.5l-10.6-40.1 47.1 40.1z"
-                        fill="#10b981"
-                      />
-                    </svg>
-                  </div>
-                  <h3>Databases</h3>
-                </div>
-                <div class="flip-card-back" id="skill-db">
-                  <h3>Databases</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>SQLite</span>
-                    <span>PostgreSQL</span>
-                    <span>MySQL</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 60%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Git Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 256"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fill="#10b981"
-                        d="M251.172 116.594L139.404 4.828c-6.433-6.437-16.873-6.437-23.31 0l-23.21 23.21 29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693 5.48 5.487 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657 7.663 7.66 7.663 20.075 0 27.74-7.665 7.666-20.08 7.666-27.749 0-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462-.003 69.637a19.82 19.82 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747-7.665 7.662-20.086 7.662-27.74 0-7.663-7.671-7.663-20.086 0-27.746a19.654 19.654 0 0 1 6.421-4.281V94.196a19.378 19.378 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442l-76.64 76.635c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324"
-                      />
-                    </svg>
-                  </div>
-                  <h3>Git & GitHub</h3>
-                </div>
-                <div class="flip-card-back" id="skill-git">
-                  <h3>Git & GitHub</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>Version Control</span>
-                    <span>CI/CD</span>
-                    <span>Collaboration</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 50%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Linux/DevOps Card -->
-            <div class="flip-card" tabindex="0">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <div class="skill-logo">
-                    <svg
-                      viewBox="0 0 256 256"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="#10b981"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm0 224c-52.9 0-96-43.1-96-96s43.1-96 96-96 96 43.1 96 96-43.1 96-96 96zm-16-144c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16h-32z"
-                      />
-                    </svg>
-                  </div>
-                  <h3>Linux/DevOps</h3>
-                </div>
-                <div class="flip-card-back" id="skill-linux">
-                  <h3>Linux/DevOps</h3>
-                  <p class="experience">1 año</p>
-                  <div class="frameworks">
-                    <span>Docker</span>
-                    <span>Bash</span>
-                    <span>Ubuntu</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-progress" style="width: 35%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="skills-grid"></div>
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="projects" aria-label="Proyectos Destacados">
+      <section id="projects" class="projects" aria-label="Proyectos">
         <div class="container">
           <h2 class="section-title">
             <span class="title-number" aria-hidden="true">04.</span>
-            <span data-i18n="projectsTitle">Proyectos Destacados</span>
+            <span data-i18n="projectsTitle">Proyectos</span>
           </h2>
           <p class="section-description" data-i18n="projectsDescription">
-            Aquí demuestro mi capacidad para llevar a cabo proyectos desde la
-            conceptualización hasta la implementación.
+            Proyectos propios que demuestran mis habilidades. Algunos en desarrollo activo.
           </p>
-
-          <div class="projects-grid">
-            <!-- Project 1: SQL Tool -->
-            <article class="project-card" id="proj-sql">
-              <div class="project-image">
-                <div class="project-overlay"></div>
-                <div class="project-tech-stack">
-                  <span class="tech-badge">Flask</span>
-                  <span class="tech-badge">SQLite</span>
-                  <span class="tech-badge">SQL</span>
-                  <span class="tech-badge">HTML/CSS</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-label" data-i18n="projectFeatured"
-                  >Proyecto Destacado</span
-                >
-                <h3 class="project-title" data-i18n="projectSQLTitle">
-                  Interactive SQL Learning Tool
-                </h3>
-                <p class="project-description" data-i18n="projectSQLDesc">
-                  Herramienta web interactiva para aprender y demostrar comandos
-                  SQL (CRUD). Visualiza consultas en tiempo real antes de
-                  ejecutarlas en la base de datos.
-                </p>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="Ver Código de SQL Tool"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                    <span data-i18n="btnCode">Código</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 2: Django App -->
-            <article class="project-card" id="proj-django">
-              <div class="project-image">
-                <div class="project-overlay"></div>
-                <div class="project-tech-stack">
-                  <span class="tech-badge">Django</span>
-                  <span class="tech-badge">PostgreSQL</span>
-                  <span class="tech-badge">Bootstrap</span>
-                  <span class="tech-badge">Auth</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-label" data-i18n="projectFeatured"
-                  >Proyecto Destacado</span
-                >
-                <h3 class="project-title" data-i18n="projectDjangoTitle">
-                  Django Web Application
-                </h3>
-                <p class="project-description" data-i18n="projectDjangoDesc">
-                  Aplicación web completa con sistema de autenticación robusto,
-                  gestión de modelos con ORM y arquitectura MVT limpia.
-                </p>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="Ver Código de Django App"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                    <span data-i18n="btnCode">Código</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 3: Exam System -->
-            <article class="project-card" id="proj-exam">
-              <div class="project-image">
-                <div class="project-overlay"></div>
-                <div class="project-tech-stack">
-                  <span class="tech-badge">Python</span>
-                  <span class="tech-badge">OOP</span>
-                  <span class="tech-badge">Algoritmos</span>
-                  <span class="tech-badge">File I/O</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-label" data-i18n="projectFeatured"
-                  >Proyecto Destacado</span
-                >
-                <h3 class="project-title" data-i18n="projectExamTitle">
-                  Exam Ranking System
-                </h3>
-                <p class="project-description" data-i18n="projectExamDesc">
-                  Sistema de evaluación automatizado que procesa respuestas,
-                  calcula puntuaciones y genera rankings dinámicos utilizando
-                  POO avanzada.
-                </p>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="Ver Código de Exam System"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                    <span data-i18n="btnCode">Código</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 4: Pet Store -->
-            <article class="project-card" id="proj-pet">
-              <div class="project-image">
-                <div class="project-overlay"></div>
-                <div class="project-tech-stack">
-                  <span class="tech-badge">Java</span>
-                  <span class="tech-badge">CRUD</span>
-                  <span class="tech-badge">Javadoc</span>
-                  <span class="tech-badge">Console UI</span>
-                </div>
-              </div>
-              <div class="project-content">
-                <span class="project-label" data-i18n="projectFeatured"
-                  >Proyecto Destacado</span
-                >
-                <h3 class="project-title" data-i18n="projectPetTitle">
-                  Pet Store Management
-                </h3>
-                <p class="project-description" data-i18n="projectPetDesc">
-                  Aplicación de gestión empresarial en Java con operaciones CRUD
-                  completas, documentación Javadoc y arquitectura escalable.
-                </p>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    aria-label="Ver Código de Pet Store"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                    <span data-i18n="btnCode">Código</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="projects-grid"></div>
         </div>
       </section>
 
-      <!-- Contact Section -->
       <section id="contact" class="contact" aria-label="Contacto">
         <div class="container">
           <h2 class="section-title">
@@ -837,106 +178,46 @@
           </h2>
           <div class="contact-content">
             <div class="contact-text">
-              <h3 class="contact-title" data-i18n="contactSubtitle">
-                Buscando mi Próximo Desafío
-              </h3>
+              <h3 class="contact-title" data-i18n="contactSubtitle">Abierto a nuevas oportunidades</h3>
               <p class="contact-description" data-i18n="contactDescription">
-                Estoy activamente buscando oportunidades como
-                <strong>desarrollador backend</strong>. Si crees que mi perfil
-                encaja con tu equipo, me encantaría conectar.
+                Estoy buscando activamente oportunidades como <strong>desarrollador</strong>. Con experiencia profesional en NTT Data y proyectos propios, me encantaría hablar si mi perfil encaja.
               </p>
-              <a
-                href="mailto:ander.resano@gmail.com"
-                class="btn btn-primary"
-                data-i18n="btnEmail"
-              >
-                Enviar Email
-              </a>
+              <a href="mailto:ander.resano@gmail.com" class="btn btn-primary" data-i18n="btnEmail">Enviar Email</a>
             </div>
             <div class="contact-links">
-              <a
-                href="mailto:ander.resano@gmail.com"
-                class="contact-link"
-                aria-label="Email"
-              >
+              <a href="mailto:ander.resano@gmail.com" class="contact-link" aria-label="Email">
                 <div class="contact-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                    ></path>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                   </svg>
                 </div>
                 <div class="contact-info">
-                  <span class="contact-label" data-i18n="labelEmail"
-                    >Email</span
-                  >
+                  <span class="contact-label" data-i18n="labelEmail">Email</span>
                   <span class="contact-value">ander.resano@gmail.com</span>
                 </div>
               </a>
-              <a
-                href="https://www.linkedin.com/in/ander-resano-farelo-136661129/"
-                target="_blank"
-                class="contact-link"
-                aria-label="LinkedIn Profile"
-              >
+              <a href="https://www.linkedin.com/in/ander-resano-farelo-136661129/" target="_blank" class="contact-link" aria-label="LinkedIn">
                 <div class="contact-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                    ></path>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect x="2" y="9" width="4" height="12"></rect>
                     <circle cx="4" cy="4" r="2"></circle>
                   </svg>
                 </div>
                 <div class="contact-info">
-                  <span class="contact-label" data-i18n="labelLinkedIn"
-                    >LinkedIn</span
-                  >
+                  <span class="contact-label" data-i18n="labelLinkedIn">LinkedIn</span>
                   <span class="contact-value">Ander Resano Farelo</span>
                 </div>
               </a>
-              <a
-                href="https://github.com/Resano96"
-                target="_blank"
-                class="contact-link"
-                aria-label="GitHub Profile"
-              >
+              <a href="https://github.com/Resano96" target="_blank" class="contact-link" aria-label="GitHub">
                 <div class="contact-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                    ></path>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
                 </div>
                 <div class="contact-info">
-                  <span class="contact-label" data-i18n="labelGitHub"
-                    >GitHub</span
-                  >
+                  <span class="contact-label" data-i18n="labelGitHub">GitHub</span>
                   <span class="contact-value">Resano96</span>
                 </div>
               </a>
@@ -946,102 +227,54 @@
       </section>
     </main>
 
-    <!-- Mobile Bottom Navigation -->
     <nav id="mobile-bottom-nav" class="mobile-bottom-nav" aria-hidden="true">
       <a href="#home" class="mobile-nav-item active" aria-label="Inicio">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
         <span>Inicio</span>
       </a>
       <a href="#about" class="mobile-nav-item" aria-label="Sobre mí">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
         <span>Sobre mí</span>
       </a>
       <a href="#education" class="mobile-nav-item" aria-label="Formación">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
           <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
         </svg>
         <span>Formación</span>
       </a>
       <a href="#skills" class="mobile-nav-item" aria-label="Skills">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
         <span>Skills</span>
       </a>
       <a href="#projects" class="mobile-nav-item" aria-label="Proyectos">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-          ></path>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
         </svg>
         <span>Proyectos</span>
       </a>
       <a href="#contact" class="mobile-nav-item" aria-label="Contacto">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-          ></path>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
         <span>Contacto</span>
       </a>
     </nav>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p>
-          &copy; <span id="year">2024</span> Ander Resano.
+          &copy; <span id="year">2025</span> Ander Resano.
           <span data-i18n="footerRights">Todos los derechos reservados.</span>
         </p>
       </div>
