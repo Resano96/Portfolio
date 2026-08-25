@@ -191,7 +191,8 @@ function updateContent(mode) {
     if (!data) return;
 
     if (data.header) renderHeader(data.header);
-    if (data.education) renderEducation(data.education);
+    if (data.experience) renderTimeline('.timeline-work', data.experience);
+    if (data.education) renderTimeline('.timeline-education', data.education);
     if (data.skills) renderSkills(data.skills);
     if (data.projects) renderProjects(data.projects);
 
@@ -208,8 +209,8 @@ function renderHeader(h) {
     if (desc) desc.textContent = h.description;
 }
 
-function renderEducation(items) {
-    const container = document.querySelector('.timeline');
+function renderTimeline(selector, items) {
+    const container = document.querySelector(selector);
     if (!container) return;
     container.innerHTML = items.map(item => `
         <div class="timeline-item" id="${item.id}">
@@ -279,8 +280,18 @@ function renderProjects(items) {
                     <span>Code</span>
                   </a>`
                 : '';
-            if (codeLink) {
-                links = `<div class="project-links">${codeLink}</div>`;
+            const demoLink = item.links.demo && item.links.demo !== '#'
+                ? `<a href="${item.links.demo}" target="_blank" rel="noopener" class="project-link" aria-label="Demo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>Demo</span>
+                  </a>`
+                : '';
+            if (codeLink || demoLink) {
+                links = `<div class="project-links">${codeLink}${demoLink}</div>`;
             }
         }
 
